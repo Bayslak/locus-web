@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Your Data – Locus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0f0e;
+      --surface: #141716;
+      --border: #1f2421;
+      --accent: #4ade80;
+      --accent-dim: #22c55e22;
+      --accent-red: #f87171;
+      --accent-red-dim: #f8717122;
+      --text-primary: #e8ede9;
+      --text-secondary: #7a8c7d;
+      --text-muted: #3d4d40;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    header {
+      margin-bottom: 72px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 48px;
+    }
+
+    .app-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .app-label::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent-red);
+    }
+
+    .meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 32px;
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* Steps */
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      margin: 16px 0 0;
+    }
+
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    .steps li:last-child { border-bottom: none; }
+
+    .steps li::before {
+      content: counter(step, decimal-leading-zero);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      min-width: 28px;
+      margin-top: 2px;
+    }
+
+    .step-text strong {
+      display: block;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    /* Highlight boxes */
+    .highlight-green {
+      background: var(--accent-dim);
+      border: 1px solid #4ade8033;
+      border-radius: 2px;
+      padding: 16px 20px;
+      margin: 20px 0 0;
+    }
+
+    .highlight-green p { color: #86efac; margin: 0; font-size: 13px; }
+
+    .highlight-red {
+      background: var(--accent-red-dim);
+      border: 1px solid #f8717133;
+      border-radius: 2px;
+      padding: 16px 20px;
+      margin: 20px 0 0;
+    }
+
+    .highlight-red p { color: #fca5a5; margin: 0; font-size: 13px; }
+
+    /* Data types */
+    .data-types {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .data-type {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 12px 16px;
+    }
+
+    .data-type .label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .data-type .desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* Link */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    a:hover { border-color: var(--accent); }
+
+    footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    footer p { font-size: 11px; color: var(--text-muted); margin: 0; }
+
+    .footer-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="app-label">Locus — GPS Location Tracker</div>
+      <h1>Delete Your <em>Data</em></h1>
+      <p class="meta">How to remove your location history and all data stored by Locus.</p>
+    </header>
+
+    <main>
+
+      <div class="card">
+        <h2>What data does Locus store?</h2>
+        <p>Locus stores all data locally on your device — nothing is ever uploaded to a server. Here is what is stored:</p>
+        <div class="data-types">
+          <div class="data-type">
+            <div class="label">Location history</div>
+            <div class="desc">GPS coordinates and timestamps of visited places</div>
+          </div>
+          <div class="data-type">
+            <div class="label">Place names</div>
+            <div class="desc">Reverse geocoded addresses from Nominatim</div>
+          </div>
+          <div class="data-type">
+            <div class="label">Points of interest</div>
+            <div class="desc">Nearby POIs fetched from Overpass API</div>
+          </div>
+          <div class="data-type">
+            <div class="label">Descriptions</div>
+            <div class="desc">Wikipedia summaries associated with places</div>
+          </div>
+        </div>
+        <div class="highlight-green">
+          <p>✦ All data is stored in an SQLite database in the app's private storage on your device. No data exists on any server — deletion is immediate and complete.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Delete data from within the app</h2>
+        <p>You can delete your data at any time without uninstalling the app:</p>
+        <ol class="steps">
+          <li>
+            <div class="step-text">
+              <strong>Open Locus</strong>
+              Launch the app on your Android device.
+            </div>
+          </li>
+          <li>
+            <div class="step-text">
+              <strong>Go to Settings</strong>
+              Tap the settings icon in the navigation bar.
+            </div>
+          </li>
+          <li>
+            <div class="step-text">
+              <strong>Select "Delete all data"</strong>
+              This permanently removes your entire location history, saved places, and all enrichment data from the local database.
+            </div>
+          </li>
+          <li>
+            <div class="step-text">
+              <strong>Confirm the deletion</strong>
+              The action is irreversible. Consider exporting a backup first if you want to keep a copy.
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h2>Complete removal — uninstall the app</h2>
+        <p>Uninstalling Locus from your device permanently deletes all stored data, including the SQLite database, log files, and any exported backups stored in the app's private directory.</p>
+        <ol class="steps">
+          <li>
+            <div class="step-text">
+              <strong>Long-press the Locus icon</strong>
+              On your Android home screen or app drawer.
+            </div>
+          </li>
+          <li>
+            <div class="step-text">
+              <strong>Select "Uninstall"</strong>
+              Confirm the uninstallation when prompted by Android.
+            </div>
+          </li>
+        </ol>
+        <div class="highlight-red">
+          <p>⚠ Uninstalling is permanent. All local data will be destroyed and cannot be recovered.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Questions or concerns?</h2>
+        <p>Because Locus stores all data locally on your device, there is no server-side data to request deletion of. If you have questions about data handling or this process, you can reach the developer via GitHub:</p>
+        <p><a href="https://github.com/Bayslak/Locus" target="_blank">github.com/Bayslak/Locus</a></p>
+        <p style="margin-top:16px;">Read the full <a href="./privacy-policy.html">Privacy Policy</a> for more details on how Locus handles your data.</p>
+      </div>
+
+    </main>
+
+    <footer>
+      <p>© 2026 Locus. All rights reserved.</p>
+      <div class="footer-brand">Locus</div>
+    </footer>
+
+  </div>
+</body>
+</html>

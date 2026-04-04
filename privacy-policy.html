@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Locus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0f0e;
+      --surface: #141716;
+      --border: #1f2421;
+      --accent: #4ade80;
+      --accent-dim: #22c55e22;
+      --text-primary: #e8ede9;
+      --text-secondary: #7a8c7d;
+      --text-muted: #3d4d40;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* Grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 72px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 48px;
+    }
+
+    .app-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .app-label::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .meta span::before {
+      content: '//';
+      color: var(--text-muted);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 56px;
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    section:nth-child(1) { animation-delay: 0.1s; }
+    section:nth-child(2) { animation-delay: 0.2s; }
+    section:nth-child(3) { animation-delay: 0.3s; }
+    section:nth-child(4) { animation-delay: 0.4s; }
+    section:nth-child(5) { animation-delay: 0.5s; }
+    section:nth-child(6) { animation-delay: 0.6s; }
+    section:nth-child(7) { animation-delay: 0.7s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-number {
+      position: absolute;
+      top: 32px;
+      right: 32px;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      margin: 16px 0;
+    }
+
+    ul li {
+      color: var(--text-secondary);
+      font-size: 13px;
+      padding: 8px 0 8px 20px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    /* Highlight box */
+    .highlight {
+      background: var(--accent-dim);
+      border: 1px solid #4ade8033;
+      border-radius: 2px;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .highlight p {
+      color: #86efac;
+      margin: 0;
+      font-size: 13px;
+    }
+
+    /* Third party table */
+    .third-party {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 12px;
+    }
+
+    .third-party th {
+      text-align: left;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 10px;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .third-party td {
+      padding: 10px 12px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .third-party tr:last-child td { border-bottom: none; }
+
+    .third-party td:first-child {
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    /* Contact */
+    .contact-link {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contact-link:hover { border-color: var(--accent); }
+
+    /* Footer */
+    footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: gap;
+      gap: 16px;
+    }
+
+    footer p {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .footer-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--text-muted);
+      letter-spacing: -0.01em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="app-label">Locus — GPS Location Tracker</div>
+      <h1>Privacy <em>Policy</em></h1>
+      <div class="meta">
+        <span>Effective: April 2026</span>
+        <span>Last updated: April 2026</span>
+        <span>Developer: Bay</span>
+      </div>
+    </header>
+
+    <main>
+
+      <section>
+        <div class="section-number">01</div>
+        <h2>Overview</h2>
+        <p>Locus is a personal GPS location tracking app for Android. It automatically saves visited places, enriches them with points of interest data, and lets you review past journeys on a map.</p>
+        <p>This policy explains what data is collected, how it is used, and your rights as a user. We are committed to transparency: Locus is designed with privacy as a core principle. All your data is stored locally on your device.</p>
+        <div class="highlight">
+          <p>✦ Locus does not have a backend server. Your location history never reaches us — it lives only on your device.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-number">02</div>
+        <h2>Data We Collect</h2>
+        <p>Locus collects the following data during normal operation:</p>
+        <ul>
+          <li><strong>Precise GPS location</strong> — collected continuously in the background while tracking is active, using Android's <code>ACCESS_FINE_LOCATION</code> and <code>ACCESS_BACKGROUND_LOCATION</code> permissions.</li>
+          <li><strong>Approximate location</strong> — may be used as a fallback when precise GPS is unavailable.</li>
+          <li><strong>Visited places</strong> — coordinates, timestamps, and derived place names stored locally in an SQLite database on your device.</li>
+        </ul>
+        <p>No personal information (name, email, phone number, device identifiers) is ever collected.</p>
+      </section>
+
+      <section>
+        <div class="section-number">03</div>
+        <h2>How We Use Your Data</h2>
+        <p>Location data is used exclusively for app functionality:</p>
+        <ul>
+          <li>Recording visited places and movement history</li>
+          <li>Reverse geocoding coordinates into human-readable place names (via Nominatim)</li>
+          <li>Discovering nearby points of interest (via Overpass API)</li>
+          <li>Enriching places with Wikipedia descriptions (via Wikidata and Wikipedia APIs)</li>
+        </ul>
+        <p>Your data is never used for advertising, analytics, profiling, or any purpose beyond making the app function as described.</p>
+      </section>
+
+      <section>
+        <div class="section-number">04</div>
+        <h2>Third-Party Services</h2>
+        <p>To enrich your location data, Locus makes requests to the following third-party services. Your GPS coordinates are transmitted to these services as part of normal operation. These services are open and privacy-respecting, and do not require accounts or store personal data.</p>
+        <table class="third-party">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Purpose</th>
+              <th>Data sent</th>
+              <th>Privacy policy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nominatim</td>
+              <td>Reverse geocoding</td>
+              <td>GPS coordinates</td>
+              <td><a class="contact-link" href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank">OSM Foundation</a></td>
+            </tr>
+            <tr>
+              <td>Overpass API</td>
+              <td>Points of interest</td>
+              <td>GPS coordinates</td>
+              <td><a class="contact-link" href="https://wiki.openstreetmap.org/wiki/Overpass_API" target="_blank">OpenStreetMap</a></td>
+            </tr>
+            <tr>
+              <td>Wikidata API</td>
+              <td>Place metadata</td>
+              <td>Place identifiers</td>
+              <td><a class="contact-link" href="https://foundation.wikimedia.org/wiki/Privacy_policy" target="_blank">Wikimedia Foundation</a></td>
+            </tr>
+            <tr>
+              <td>Wikipedia API</td>
+              <td>Place descriptions</td>
+              <td>Article titles</td>
+              <td><a class="contact-link" href="https://foundation.wikimedia.org/wiki/Privacy_policy" target="_blank">Wikimedia Foundation</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:20px;">All communication with these services occurs over HTTPS (encrypted in transit). Locus does not share your data with any advertising networks, analytics providers, or commercial third parties.</p>
+      </section>
+
+      <section>
+        <div class="section-number">05</div>
+        <h2>Data Storage & Security</h2>
+        <p>All data collected by Locus — including your complete location history, saved places, and enrichment data — is stored exclusively in a local SQLite database on your device. It is never uploaded to any server.</p>
+        <ul>
+          <li>Data is stored in the app's private storage directory, inaccessible to other apps</li>
+          <li>All network communication uses HTTPS encryption</li>
+          <li>No cloud backup of your data is performed by Locus</li>
+        </ul>
+        <p>You can export your data at any time using the built-in backup feature (JSON format via Android share sheet).</p>
+      </section>
+
+      <section>
+        <div class="section-number">06</div>
+        <h2>Your Rights & Data Deletion</h2>
+        <p>You have full control over your data at all times:</p>
+        <ul>
+          <li><strong>Delete individual places</strong> — directly within the app</li>
+          <li><strong>Delete all data</strong> — via Settings → Delete all data</li>
+          <li><strong>Complete deletion</strong> — uninstalling Locus permanently removes all data from your device</li>
+        </ul>
+        <p>Because all data is stored locally and never transmitted to our servers, deletion is immediate and complete. There is no server-side data to request deletion of.</p>
+        <p>To submit a formal data deletion request, visit our <a class="contact-link" href="./delete-data.html">data deletion page</a>.</p>
+      </section>
+
+      <section>
+        <div class="section-number">07</div>
+        <h2>Contact</h2>
+        <p>If you have any questions about this privacy policy or how Locus handles your data, you can reach the developer at:</p>
+        <p><a class="contact-link" href="https://github.com/Bayslak/Locus" target="_blank">github.com/Bayslak/Locus</a></p>
+        <p>This policy may be updated from time to time. Continued use of the app after changes constitutes acceptance of the revised policy.</p>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>© 2026 Locus. All rights reserved.</p>
+      <div class="footer-brand">Locus</div>
+    </footer>
+
+  </div>
+</body>
+</html>
