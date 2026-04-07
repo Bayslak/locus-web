@@ -9,16 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0d0f0e;
-      --surface: #141716;
-      --border: #1f2421;
-      --accent: #4ade80;
-      --accent-dim: #22c55e22;
-      --accent-red: #f87171;
-      --accent-red-dim: #f8717122;
-      --text-primary: #e8ede9;
-      --text-secondary: #7a8c7d;
-      --text-muted: #3d4d40;
+      --bg: #1D1616;
+      --surface: #231E1E;
+      --border: #2E2525;
+      --accent: #8E1616;
+      --accent-dim: #8E161622;
+      --accent-red: #C05050;
+      --accent-red-dim: #C0505022;
+      --text-primary: #F0EAEA;
+      --text-secondary: #8A7070;
+      --text-muted: #4A3535;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -100,7 +100,6 @@
       color: var(--text-secondary);
     }
 
-    /* Cards */
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -137,7 +136,6 @@
 
     p:last-child { margin-bottom: 0; }
 
-    /* Steps */
     .steps {
       counter-reset: step;
       list-style: none;
@@ -173,28 +171,26 @@
       margin-bottom: 4px;
     }
 
-    /* Highlight boxes */
     .highlight-green {
       background: var(--accent-dim);
-      border: 1px solid #4ade8033;
+      border: 1px solid #8E161633;
       border-radius: 2px;
       padding: 16px 20px;
       margin: 20px 0 0;
     }
 
-    .highlight-green p { color: #86efac; margin: 0; font-size: 13px; }
+    .highlight-green p { color: #C97070; margin: 0; font-size: 13px; }
 
     .highlight-red {
       background: var(--accent-red-dim);
-      border: 1px solid #f8717133;
+      border: 1px solid #C0505033;
       border-radius: 2px;
       padding: 16px 20px;
       margin: 20px 0 0;
     }
 
-    .highlight-red p { color: #fca5a5; margin: 0; font-size: 13px; }
+    .highlight-red p { color: #D08080; margin: 0; font-size: 13px; }
 
-    /* Data types */
     .data-types {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -222,7 +218,6 @@
       color: var(--text-secondary);
     }
 
-    /* Link */
     a {
       color: var(--accent);
       text-decoration: none;
